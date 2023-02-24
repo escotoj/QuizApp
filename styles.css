@@ -1,0 +1,31 @@
+.box {
+    border-style: solid;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    border-width: 5px;
+    padding: 30px;
+    flex: 0 0 300px;
+    margin: 50px;
+  }
+
+ input[type=password] {
+    border-style:dashed;
+    width: 600px;
+    height: 50px;
+    text-align: start;
+    background-color: rgb(255, 255, 255);
+    border-width: 2px;
+    padding: 10px;
+    margin: 50px;
+    
+  }
+
+  .GP {
+    text-align: center;
+    color: rgb(255, 255, 255);
+    background-color: rgb(193, 0, 0);
+    height: 50px;
+    padding: 10px;
+  }
+
+  /* need to create small sections  */
