@@ -1,38 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" type="text/css" href="style.css" /> -->
+    <link rel="stylesheet" href="styles.css"/>
+    <title>Quiz App</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- <link rel="stylesheet" type="text/css" href="style.css" /> -->
-  <link rel="stylesheet" href="style.css">
-  <title>Quiz App</title>
-</head>
+  <body>
+    <h1 style="text-align: center">DJ Smaug Quiz</h1>
+    <main id="box">
+      <h2>Please see question and choose one of the answers below:</h2>
+      <div>
+        <p id="questionPromp">Questions</p>
+      </div>
 
-<body>
+      <!-- buttons have data attributes that can be targetted. -->
 
-  <h1 style="text-align:center">DJ Smaug Quiz</h1>
-  <main class="box">
-    <h2>Generate Password</h2>
-<div>
+      <section class=".answers">
+        <button id="choiceA" type="button" onclick="">Answer 1</button>
+        <button id="choiceB" type="button" onclick="">Answer 2</button>
+        <button id="choiceC" type="button" onclick="">Answer 3</button>
+        <button id="choiceD" type="button" onclick="">Answer 4</button>
+      </section>
+    </main>
 
-    <!-- no need for label here -->
-<label for="Password"></label>
-<input type="password" id="input" name="Password" placeholder="Enter your Password">
-
-</div>
-<!-- non need for prompt me, need buttons to click on -->
-<section> 
-<button type="button" onclick="promptMe()"> 
-    <div class="GP">
-        Generate Password
-    </div>
-</button>
-</section>
-
-  </main>
-
-  <script src="app.js"></script>
-
-</body>
+    <script src="app.js"></script>
+  </body>
 </html>
