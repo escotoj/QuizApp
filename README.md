@@ -15,3 +15,9 @@ Prompt to put up in order to inout initials and save final score.
 if statements for when answers are correct to log a point. 
 need to render a page for final score
 final score must be saved.
+
+### Links and Screenshots
+Github: https://github.com/escotoj/QuizApp
+Deployed App: https://escotoj.github.io/QuizApp/
+
+![this is an image](PotterQuiz.png)
