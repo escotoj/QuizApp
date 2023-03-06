@@ -1,76 +1,60 @@
-// var qOne = [
-//   {
-//     question: "What was professor snapes first name?",
-//     choices: ["Severus", "Black", "Severe", "sirus"],
-//     correctAnswer: 0,
-//   },
-// ];
-
-// var qTwo = [
-//   {
-//     question: "What kind of pet did Ron have?",
-//     choices: ["Mouse", "Duck", "Rat", "Bird"],
-//     correctAnswer: 2,
-//   },
-// ];
-
-// var qThree = [
-//   {
-//     question: "What kind of pet did Ron have?",
-//     choices: ["Mouse", "Duck", "Rat", "Bird"],
-//     correctAnswer: 2,
-//   },
-// ];
-
-// var qFour = [
-//   {
-//     question: "Who was the most powerfull wizard?",
-//     choices: ["Albus", "Tom", "Grinderwal", "Harry"],
-//     correctAnswer: 0,
-//   },
-// ];
-
-// var qFive = [
-//   {
-//     question: "What kind of house did teh Weasleys live in?",
-//     choices: ["Mansion", "Duplex", "Bourough", "Flat"],
-//     correctAnswer: 2,
-//   },
-// ];
-
-// const start = document.getElementById("start");
 const answers = document.querySelectorAll("answers");
 const question = document.getElementById("questionPromp");
-var choiceA = document.getElementById("choiceA")
-var choiceB = document.getElementById("choiceB")
-var choiceC = document.getElementById("choiceC")
-var choiceD = document.getElementById("choiceD")
+const mainBox = document.getElementById("box");
+var choiceA = document.getElementById("choiceA");
+var choiceB = document.getElementById("choiceB");
+var choiceC = document.getElementById("choiceC");
+var choiceD = document.getElementById("choiceD");
+var startQuiz = document.getElementById("startQuiz");
+var startTimer = document.getElementById("startTimer");
+var startTime = 60;
 
 // if (questionPrompt[questionIndex].correct) {
 // }
 // event.target.id
+startQuiz.addEventListener("click", function () {
+  // mainBox.style.display = "block"
+  mainBox.classList.remove("hide");
+  renderQuestion();
+
+  setInterval(function () {
+    startTime--;
+    startTimer.textContent = "Timer:" + startTime;
+  }, 1000);
+});
 
 var questionPromp = [
   {
-    question: "What does HTML stand for?",
-    choiceA: "Correct",
-    choiceB: "Wrong",
-    choiceC: "Wrong",
+    question: "What was professor snapes first name?",
+    choiceA: "Severus",
+    choiceB: "Black",
+    choiceC: "Sirus",
+    choiceD: "James",
     correct: "choiceA",
   },
   {
-    question: "What does CSS stand for?",
-    choiceA: "Wrong",
-    choiceB: "Correct",
-    choiceC: "Wrong",
-    correct: "B",
+    question: "What kind of pet did Ron have?",
+    choiceA: "Duck",
+    choiceB: "Rat",
+    choiceC: "Mouse",
+    choiceD: "Owl",
+    correct: "choiceB",
   },
   {
-    question: "What does JS stand for?",
-    choiceA: "Wrong",
-    choiceB: "Wrong",
-    choiceC: "Correct",
-    correct: "C",
+    question: "Who was the most powerfull wizard?",
+    choiceA: "Harry",
+    choiceB: "Tom",
+    choiceC: "Albus",
+    choiceD: "Grinderwald",
+    correct: "choiceC",
+  },
+  {
+    question: "What kind of house did the Weasleys live in?",
+    choiceA: "Apartment",
+    choiceB: "Duplex",
+    choiceC: "Mansion",
+    choiceD: "Burrow",
+    correct: "choiceC",
   },
 ];
 
@@ -79,7 +63,7 @@ const lastQuestion = questionPromp.length - 1;
 // index
 var questionIndex = 0;
 
-console.log(question)
+console.log(question);
 
 function renderQuestion() {
   var q = questionPromp[questionIndex];
@@ -87,6 +71,7 @@ function renderQuestion() {
   choiceA.innerHTML = q.choiceA;
   choiceB.innerHTML = q.choiceB;
   choiceC.innerHTML = q.choiceC;
+  choiceD.innerHTML = q.choiceD;
 }
 
 var answersClick = document.querySelector("section");
@@ -94,11 +79,21 @@ var answersClick = document.querySelector("section");
 answersClick.addEventListener("click", function (event) {
   var buttonClickID = event.target.id;
   console.log(buttonClickID);
-  renderQuestion();
+  checkAnswer(buttonClickID);
 });
 
-var firstChildUl = document.getElementById("first-child-ul");
-console.log(firstChildUl);
+function checkAnswer(buttonClickID) {
+  if (questionPromp[questionIndex].correct === buttonClickID) {
+  } else {
+    startTime = startTime - 5;
+  }
+
+  questionIndex++;
+  renderQuestion();
+}
+
+// var firstChildUl = document.getElementById("first-child-ul");
+// console.log(firstChildUl);
 
 // use nagivate function from example 18 to sort through all questions, do not use for-loop for this.
 // function navigate(direction) {

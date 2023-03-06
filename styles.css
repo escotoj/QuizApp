@@ -6,7 +6,16 @@
     padding: 30px;
     flex: 0 0 300px;
     margin: 50px;
-    
+    /* display: none; */
+  }
+
+  #questionPromp {
+  }
+  
+  
+
+  .hide {
+    display: none;
   }
 
   #questionPromp {
