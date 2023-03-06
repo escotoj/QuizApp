@@ -1,7 +1,7 @@
 #box {
     border-style: solid;
     text-align: center;
-    background-color: rgb(247, 219, 254);
+    background-color: rgb(255, 186, 161);
     border-width: 5px;
     padding: 30px;
     flex: 0 0 300px;
@@ -15,7 +15,7 @@
   }
 
   #correctAlert {
-    color: rgb(141, 154, 255);
+    color: rgb(125, 0, 0);
   }
   
   #startTimer {
@@ -30,9 +30,9 @@
     display: none;
   }
 
-  #questionPromp {
+  /* #questionPromp {
     text-align: center;
-  }
+  } */
 
   .answer {
     text-align: center;

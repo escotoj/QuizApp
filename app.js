@@ -29,6 +29,7 @@ startQuiz.addEventListener("click", function () {
   mainBox.classList.remove("hide");
   clearInterval(startQuiz);
   initials.classList.display("block");
+  initials.textContent = "Final Score:" + finalScore;
  
 }
 
@@ -109,7 +110,7 @@ answersClick.addEventListener("click", function (event) {
 
 function checkAnswer(buttonClickID) {
   if (questionPromp[questionIndex].correct === buttonClickID) {
-    correctAlert.textContent = ("correct!");
+    correctAlert.textContent = ("Correct!");
   } else {
     startTime = startTime - 5;
     questionPromp[questionIndex];
