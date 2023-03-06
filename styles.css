@@ -11,6 +11,10 @@
 
   #questionPromp {
   }
+
+  #correctAlert {
+    color: rgb(141, 154, 255);
+  }
   
   
 

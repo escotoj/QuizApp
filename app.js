@@ -7,6 +7,7 @@ var choiceC = document.getElementById("choiceC");
 var choiceD = document.getElementById("choiceD");
 var startQuiz = document.getElementById("startQuiz");
 var startTimer = document.getElementById("startTimer");
+var correctAlert = document.getElementById("correctAlert");
 var startTime = 30;
 
 // if (questionPrompt[questionIndex].correct) {
@@ -15,11 +16,11 @@ var startTime = 30;
 startQuiz.addEventListener("click", function () {
   // mainBox.style.display = "block"
   mainBox.classList.remove("hide");
-  renderQuestion();
-
+  renderQuestion(); 
   setInterval(function () {
     startTime--;
     startTimer.textContent = "Timer:" + startTime;
+    // attempts to make it stop at zero
     if(startTime === 0) {
       clearInterval(startQuiz);
     }
@@ -104,9 +105,11 @@ answersClick.addEventListener("click", function (event) {
 
 function checkAnswer(buttonClickID) {
   if (questionPromp[questionIndex].correct === buttonClickID) {
+    correctAlert.textContent = ("correct!");
   } else {
     startTime = startTime - 5;
     questionPromp[questionIndex];
+    correctAlert.textContent = ("Nope!");
   }
 
   questionIndex++;
