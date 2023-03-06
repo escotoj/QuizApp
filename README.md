@@ -6,8 +6,8 @@ So far have created the layout and structure of the quiz including questions and
 Worked with Johnny (TA) to target the correct classes and ids to render the first question. also got better guidance on how to work the logic for this app. 
 
 # Questions
-how to stop setinterval at zero, reduce the time to 30 seconds. 
-if statements for when answers are correct, remeber to match them
-need to save the keys that they answered with 
+how to stop setinterval at zero and once it does, end game aka remove mainbox again and show initials class
+Prompt to put up in order to inout initials and save final score.
+if statements for when answers are correct to log a point. 
 need to render a page for final score
 final score must be saved.

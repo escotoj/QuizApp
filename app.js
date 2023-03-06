@@ -8,24 +8,29 @@ var choiceD = document.getElementById("choiceD");
 var startQuiz = document.getElementById("startQuiz");
 var startTimer = document.getElementById("startTimer");
 var correctAlert = document.getElementById("correctAlert");
-var startTime = 30;
+var initials = document.getElementsByClassName("initials");
+var startTime = 5;
 
-// if (questionPrompt[questionIndex].correct) {
-// }
-// event.target.id
+
+
 startQuiz.addEventListener("click", function () {
-  // mainBox.style.display = "block"
   mainBox.classList.remove("hide");
   renderQuestion(); 
   setInterval(function () {
     startTime--;
     startTimer.textContent = "Timer:" + startTime;
-    // attempts to make it stop at zero
-    if(startTime === 0) {
-      clearInterval(startQuiz);
-    }
+    // attempts to make it stop at zero and clear the mainbox upon hitting zero
   }, 1000);
 });
+
+
+    // attempts to make it stop at zero and clear the mainbox upon hitting zero, clear mainbox againa and display form section
+  if(startTime === 0) {
+  mainBox.classList.remove("hide");
+  clearInterval(startQuiz);
+  initials.classList.display("block");
+ 
+}
 
 var questionPromp = [
   {
@@ -58,7 +63,7 @@ var questionPromp = [
     choiceB: "Duplex",
     choiceC: "Mansion",
     choiceD: "Burrow",
-    correct: "choiceC",
+    correct: "choiceD",
   },
   {
     question: "What were Hermionies parents occupation?",
@@ -81,7 +86,6 @@ var questionPromp = [
 
 const lastQuestion = questionPromp.length - 1;
 
-// index
 var questionIndex = 0;
 
 console.log(question);
@@ -112,55 +116,16 @@ function checkAnswer(buttonClickID) {
     correctAlert.textContent = ("Nope!");
   }
 
+// add a condition that gives a correct answer a point.
+// var finalScore = localStorage.getItem("points");
+
+// function correctScore(buttonClickID) {
+//     if (questionPromp[questionIndex].correct === buttonClickID) {
+      
+//     } else {;
+//     }
+
   questionIndex++;
   renderQuestion();
-}
-
-// var firstChildUl = document.getElementById("first-child-ul");
-// console.log(firstChildUl);
-
-// use nagivate function from example 18 to sort through all questions, do not use for-loop for this.
-// function navigate(direction) {
-//     index = index + direction;
-//     if (index < 0) {
-//       index = images.length - 1;
-//     } else if (index > images.length - 1) {
-//       index = 0;
-//     }
-//     currentImage = images[index];
-//     carousel.style.backgroundImage = "url('" + currentImage + "')";
-// }
-
-// need to add these question to the html by targeting elements and get by id fucntions
-// putting an event listern as a target, will be captured var imageContainer = document.querySelector(".img-container");
-// Listen for any clicks within the img-container div imageContainer.addEventListener("click", function(event) {var element = event.target;
-// var imageContainer = document.querySelector(".img-container");
-
-// Check if the clicked element was an image
-// if (element.matches("1")) {
-//   // Get the current value of the image's data-state attribute
-//   var state = element.getAttribute("data-state");
-
-//   if (state === "2") {
-//     // Change the data-state attribute's value
-//     // There are two different ways this attribute can be set
-//     element.dataset.state = "3";
-//     element.setAttribute("data-state", "animate");
-//     // Update the image's source to the string being stored in the data-animate attribute
-//   } else {
-//     // Change the attributes back to their non-animated values
-//     element.dataset.state = "4";
-//     element.setAttribute("src", element.dataset.still);
-//   }
-// }
-
-// var answers = document.querySelector("section");
-
-// answers.addEventListener("click", function (event) {
-//   var element = event.target;
-//   console.log("hello");
-// });
-
-// function log() {
-//     var element = console.log("hello");
-// }
+  
+};

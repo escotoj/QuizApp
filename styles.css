@@ -9,13 +9,21 @@
     /* display: none; */
   }
 
-  #questionPromp {
+  .initials {
+    display: none;
+    color: brown;
   }
 
   #correctAlert {
     color: rgb(141, 154, 255);
   }
   
+  #startTimer {
+    display: block;
+    color: black;
+    flex: content;
+    
+  }
   
 
   .hide {
