@@ -7,7 +7,7 @@ var choiceC = document.getElementById("choiceC");
 var choiceD = document.getElementById("choiceD");
 var startQuiz = document.getElementById("startQuiz");
 var startTimer = document.getElementById("startTimer");
-var startTime = 60;
+var startTime = 30;
 
 // if (questionPrompt[questionIndex].correct) {
 // }
@@ -20,6 +20,9 @@ startQuiz.addEventListener("click", function () {
   setInterval(function () {
     startTime--;
     startTimer.textContent = "Timer:" + startTime;
+    if(startTime === 0) {
+      clearInterval(startQuiz);
+    }
   }, 1000);
 });
 
@@ -56,6 +59,23 @@ var questionPromp = [
     choiceD: "Burrow",
     correct: "choiceC",
   },
+  {
+    question: "What were Hermionies parents occupation?",
+    choiceA: "Pyschologists",
+    choiceB: "Dentists",
+    choiceC: "Mailworkers",
+    choiceD: "Engineers",
+    correct: "choiceB",
+  },
+
+  {
+    question: "Which is not a deathly hollow?",
+    choiceA: "Elder Wand",
+    choiceB: "Cloak of Invisibility",
+    choiceC: "Resurection Stone",
+    choiceD: "The Room of Requirement",
+    correct: "choiceD",
+  },
 ];
 
 const lastQuestion = questionPromp.length - 1;
@@ -86,6 +106,7 @@ function checkAnswer(buttonClickID) {
   if (questionPromp[questionIndex].correct === buttonClickID) {
   } else {
     startTime = startTime - 5;
+    questionPromp[questionIndex];
   }
 
   questionIndex++;
