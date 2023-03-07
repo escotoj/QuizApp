@@ -1,4 +1,4 @@
-# Quizz Application
+# Quiz Application
 The assigment is to create a multiple choice quiz that is timed. 
 Using HTML, CSS but mainly working with JS to target classes, attributes and IDs.
 ## Progress

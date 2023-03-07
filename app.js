@@ -9,29 +9,25 @@ var startQuiz = document.getElementById("startQuiz");
 var startTimer = document.getElementById("startTimer");
 var correctAlert = document.getElementById("correctAlert");
 var initials = document.getElementsByClassName("initials");
-var startTime = 5;
-
-
+var startTime = 30;
 
 startQuiz.addEventListener("click", function () {
   mainBox.classList.remove("hide");
-  renderQuestion(); 
   setInterval(function () {
     startTime--;
     startTimer.textContent = "Timer:" + startTime;
-    // attempts to make it stop at zero and clear the mainbox upon hitting zero
+    if (startTime <= 0) {
+      startTime = 0;
+      quizEnd();
+    }
+      // quizEnd();
+     // attempts to make it stop at zero and clear the mainbox upon hitting zero
   }, 1000);
+  renderQuestion();
 });
 
+// attempts to make it stop at zero and clear the mainbox upon hitting zero, clear mainbox againa and display form section
 
-    // attempts to make it stop at zero and clear the mainbox upon hitting zero, clear mainbox againa and display form section
-  if(startTime === 0) {
-  mainBox.classList.remove("hide");
-  clearInterval(startQuiz);
-  initials.classList.display("block");
-  initials.textContent = "Final Score:" + finalScore;
- 
-}
 
 var questionPromp = [
   {
@@ -110,23 +106,44 @@ answersClick.addEventListener("click", function (event) {
 
 function checkAnswer(buttonClickID) {
   if (questionPromp[questionIndex].correct === buttonClickID) {
-    correctAlert.textContent = ("Correct!");
+    correctAlert.textContent = "Correct!";
   } else {
+    // startTime -= 5;
     startTime = startTime - 5;
-    questionPromp[questionIndex];
-    correctAlert.textContent = ("Nope!");
+    // questionPromp[questionIndex];
+    correctAlert.textContent = "Nope!";
   }
 
-// add a condition that gives a correct answer a point.
-// var finalScore = localStorage.getItem("points");
+  
 
-// function correctScore(buttonClickID) {
-//     if (questionPromp[questionIndex].correct === buttonClickID) {
-      
-//     } else {;
-//     }
+  // add a condition that gives a correct answer a point.
+  // var finalScore = localStorage.getItem("points");
+
+  // function correctScore(buttonClickID) {
+  //     if (questionPromp[questionIndex].correct === buttonClickID) {
+
+  //     } else {;
+  //     }
 
   questionIndex++;
-  renderQuestion();
-  
+  if (startTime === 0 || questionIndex === questionPromp.length) {
+   console.log("hello"); 
+   console.log(questionIndex)
+   console.log(questionPromp.length)
+    quizEnd();
+  } else {
+    renderQuestion();
+    console.log("duck");
+  };
+ 
 };
+
+
+function quizEnd() {
+  startTime++;
+  // initials.classList.remove ("show");
+  // mainBox.classList.add("hide");
+  // clearInterval(startQuiz);
+  // initials.classList.remove("initials");
+  initials.textContent = "Final Score:" + startTime;
+}
