@@ -9,9 +9,16 @@
     /* display: none; */
   }
 
-  .initials {
-    display: block;
-    color: brown;
+  #initials {
+    /* display: block; */
+    /* color: brown; */
+    border-style: solid;
+    text-align: center;
+    background-color: rgb(255, 186, 161);
+    border-width: 5px;
+    padding: 30px;
+    flex: 0 0 300px;
+    margin: 50px;
   }
 
   #correctAlert {
