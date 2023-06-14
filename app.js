@@ -100,12 +100,14 @@ var questionIndex = 0;
 console.log(question);
 
 function renderQuestion() {
-  var q = questionPromp[questionIndex];
-  question.textContent = q.question;
-  choiceA.innerHTML = q.choiceA;
-  choiceB.innerHTML = q.choiceB;
-  choiceC.innerHTML = q.choiceC;
-  choiceD.innerHTML = q.choiceD;
+  if (questionIndex < lastQuestion) {
+    var q = questionPromp[questionIndex];
+    question.textContent = q.question;
+    choiceA.innerHTML = q.choiceA;
+    choiceB.innerHTML = q.choiceB;
+    choiceC.innerHTML = q.choiceC;
+    choiceD.innerHTML = q.choiceD;
+  }
 }
 
 var answersClick = document.querySelector("section");
@@ -134,33 +136,26 @@ function checkAnswer(buttonClickID) {
 
 function quizEnd() {
   mainBox.classList.add("hide");
-  // initials.classList.remove("hide");
-  // startTimer.classList.add("display", "none"); 
-  initials.textContent = "Final Score: " + startTime;
+  initials.classList.remove("hide");
+  initials.textContent = "";
   var section = document.createElement("section");
   section.id = "initials";
   section.classList.add("hide");
-  
-  // Create the HTML content
-  section.innerHTML = `
+    section.innerHTML = `
         <h2>Congrats on finishing the Potter Quiz!</h2>
         <h3>Enter your initials below to save your score :)</h3>
-        <label for="msg">Initials</label>
-        <textarea id="msg" name="comments"></textarea>
+        <label for="msg"> </label>
+        <textarea id="msg" name="comments">
+        </textarea>
       <button id="save">Save Data</button>
   `;
   
   // Append the section to the document body
-  document.body.appendChild(section);
-  
+  document.body.appendChild(section);  
   // Add event listener to the save button
   var saveButton = section.querySelector("#save");
   saveButton.addEventListener("click", saveData);
-  
-  // Show the section
   section.classList.remove("hide");
-
-  // Set focus on the textarea
   var initialsInput = section.querySelector("#msg");
   initialsInput.focus();
 }
@@ -172,6 +167,9 @@ function saveData() {
     correctAlert.textContent = "Score saved successfully!";
     
     // Create a new element for displaying initials and score
+    var scoreElement = document.createElement("p");
+    scoreElement.textContent = initialsInput + " | Score: " + startTime;
+
     var scoreElement = document.createElement("p");
     scoreElement.textContent = initialsInput + " | Score: " + startTime;
     
