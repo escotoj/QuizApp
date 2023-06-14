@@ -9,12 +9,16 @@ Using JavaScript to dynamically display CSS and HTML data on a single-page web a
 - Dynamic rendering and hiding of elements
 - Interactive HTML and CSS
 
+
+
 ## Table of Contents
 
 - [License](#License)
 - [Future](#Future)
 - [Credits](#Credits)
 - [Contact](#Contact)
+
+![Potter Quiz: ](potterquizfinal.png)
 
 ## License
 
