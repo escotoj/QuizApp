@@ -1,4 +1,4 @@
-#box {
+/* #box {
     border-style: solid;
     text-align: center;
     background-color: rgb(255, 186, 161);
@@ -6,12 +6,9 @@
     padding: 30px;
     flex: 0 0 300px;
     margin: 50px;
-    /* display: none; */
   }
 
   #initials {
-    /* display: block; */
-    /* color: brown; */
     border-style: solid;
     text-align: center;
     background-color: rgb(255, 186, 161);
@@ -37,6 +34,11 @@
     display: none;
   }
 
+
+  .answer {
+    text-align: center;
+  } */
+
   /* .show {
     display: none;
   } */
@@ -45,9 +47,99 @@
     text-align: center;
   } */
 
-  .answer {
+
+  body {
+    background-color: #f8f8f8;
+    font-family: Arial, sans-serif;
+
+  }
+  
+  h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  
+  
+  #box {
+    border: 5px solid #e79e79;
     text-align: center;
+    background-color: #ffc7b2;
+    padding: 30px;
+    width: 300px;
+    margin: 50px auto;
+    border-radius: 10px;
+  }
+  
+  #initials {
+    border: 5px solid #e79e79;
+    text-align: center;
+    background-color: #ffc7b2;
+    padding: 30px;
+    width: 300px;
+    margin: 50px auto;
+    border-radius: 10px;
+  }
+  
+  #correctAlert {
+    color: #8d9aff;
+  }
+  
+  #startTimer {
+    text-align: center;
+    display: block;
+    color: #000;
+    font-weight: bold;
+  }
+  
+  #startQuiz {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(75, 0, 5);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
   }
 
+  #startQuiz:hover {
+    background-color: rgb(100, 101, 0);
+    color: white;
+  }
+  
+  
 
-  /* need to create small sections  */
+  .hide {
+    display: none;
+  }
+  
+  .answers button {
+    display: block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #3b9227;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  #save {
+    padding: 10px 20px;
+    background-color: #4285f4;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  

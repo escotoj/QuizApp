@@ -11,22 +11,34 @@ var correctAlert = document.getElementById("correctAlert");
 var initials = document.getElementById("initials");
 var startTime = 60;
 
+// startQuiz.addEventListener("click", function () {
+//   mainBox.classList.remove("hide");
+//   setInterval(function () {
+//     startTime--;
+//     startTimer.textContent = "Timer:" + startTime;
+//     if (startTime <= 0) {
+//       startTime = 0;
+//       quizEnd();
+//     }
+//   }, 1000);
+//   renderQuestion();
+// });
+
 startQuiz.addEventListener("click", function () {
   mainBox.classList.remove("hide");
-  setInterval(function () {
+  var startQuizButton = document.getElementById("startQuiz");
+  startQuizButton.style.display = "none";
+  var timerInterval = setInterval(function () {
     startTime--;
-    startTimer.textContent = "Timer:" + startTime;
-    if (startTime <= 0) {
-      startTime = 0;
+    startTimer.textContent = "Timer: " + startTime;
+    if (startTime <= 0 || questionIndex === lastQuestion) {
+      clearInterval(timerInterval);
       quizEnd();
     }
-      // quizEnd();
-     // attempts to make it stop at zero and clear the mainbox upon hitting zero
   }, 1000);
   renderQuestion();
 });
 
-// attempts to make it stop at zero and clear the mainbox upon hitting zero, clear mainbox againa and display form section
 
 
 var questionPromp = [
@@ -81,7 +93,7 @@ var questionPromp = [
   },
 ];
 
-const lastQuestion = questionPromp.length - 1;
+const lastQuestion = questionPromp.length;
 
 var questionIndex = 0;
 
@@ -108,60 +120,72 @@ function checkAnswer(buttonClickID) {
   if (questionPromp[questionIndex].correct === buttonClickID) {
     correctAlert.textContent = "Correct!";
   } else {
-    // startTime -= 5;
     startTime = startTime - 5;
-    // questionPromp[questionIndex];
     correctAlert.textContent = "Nope!";
   }
 
-  
-
-  // add a condition that gives a correct answer a point.
-  // var finalScore = localStorage.getItem("points");
-
-  // function correctScore(buttonClickID) {
-  //     if (questionPromp[questionIndex].correct === buttonClickID) {
-
-  //     } else {;
-  //     }
-
-  questionIndex++;
-  if (startTime === 0 || questionIndex === questionPromp.length) {
-   console.log("hello"); 
-   console.log(questionIndex)
-   console.log(questionPromp.length)
+  if (questionIndex === lastQuestion) {
     quizEnd();
   } else {
+    questionIndex++;
     renderQuestion();
-    console.log("duck");
-  };
- 
-};
-// var nameBox = document.getElementById("answers");
-// function inputBox () {
-//   document.createElement("INPUT");
-// nameBox.setAttribute("type", "text");
-// };
+  }
+}
 
 function quizEnd() {
-  startTime++;
-  initials.textContent = "Final Score:" + startTime;
-  initials.classList.remove("hide");
+  mainBox.classList.add("hide");
+  // initials.classList.remove("hide");
+  // startTimer.classList.add("display", "none"); 
+  initials.textContent = "Final Score: " + startTime;
+  var section = document.createElement("section");
+  section.id = "initials";
+  section.classList.add("hide");
   
+  // Create the HTML content
+  section.innerHTML = `
+        <h2>Congrats on finishing the Potter Quiz!</h2>
+        <h3>Enter your initials below to save your score :)</h3>
+        <label for="msg">Initials</label>
+        <textarea id="msg" name="comments"></textarea>
+      <button id="save">Save Data</button>
+  `;
+  
+  // Append the section to the document body
+  document.body.appendChild(section);
+  
+  // Add event listener to the save button
+  var saveButton = section.querySelector("#save");
+  saveButton.addEventListener("click", saveData);
+  
+  // Show the section
+  section.classList.remove("hide");
 
-  // initials.classList.remove ("hide");
-  // mainBox.classList.add("hide");
-  // clearInterval(startQuiz);
-  // initials.classList.remove("initials");
-
-
-// startQuiz = $('#startQuiz');
-// questionPromp = $('#questionPromp');
-// answers = $('.answers')
-
-//   startQuiz.on("click", function () {
-//     console.log("container");
-// });
- 
+  // Set focus on the textarea
+  var initialsInput = section.querySelector("#msg");
+  initialsInput.focus();
 }
+
+function saveData() {
+  var initialsInput = document.querySelector("#msg").value;
+  if (initialsInput.trim() !== "") {
+    // Save the data or perform any other action here
+    correctAlert.textContent = "Score saved successfully!";
+    
+    // Create a new element for displaying initials and score
+    var scoreElement = document.createElement("p");
+    scoreElement.textContent = initialsInput + " | Score: " + startTime;
+    
+    // Append the score element to the document body
+    var initialsSection = document.getElementById("initials");
+    initialsSection.appendChild(scoreElement);
+    
+    // Clear the initials input field
+    document.querySelector("#msg").value = "";
+    document.querySelector("#msg").blur();
+  } else {
+    correctAlert.textContent = "Please enter your initials.";
+  }
+  startTimer.style.display = "none";
+}
+
 
