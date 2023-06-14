@@ -9,7 +9,7 @@ var startQuiz = document.getElementById("startQuiz");
 var startTimer = document.getElementById("startTimer");
 var correctAlert = document.getElementById("correctAlert");
 var initials = document.getElementById("initials");
-var startTime = 30;
+var startTime = 60;
 
 startQuiz.addEventListener("click", function () {
   mainBox.classList.remove("hide");
@@ -137,17 +137,31 @@ function checkAnswer(buttonClickID) {
   };
  
 };
-var nameBox = document.getElementById("box");
-var nameBox = document.createElement("INPUT");
-nameBox.setAttribute("type", "text");
-
+// var nameBox = document.getElementById("answers");
+// function inputBox () {
+//   document.createElement("INPUT");
+// nameBox.setAttribute("type", "text");
+// };
 
 function quizEnd() {
   startTime++;
   initials.textContent = "Final Score:" + startTime;
-  initials.classList.remove ("hide");
+  initials.classList.remove("hide");
+  
+
+  // initials.classList.remove ("hide");
   // mainBox.classList.add("hide");
   // clearInterval(startQuiz);
   // initials.classList.remove("initials");
+
+
+// startQuiz = $('#startQuiz');
+// questionPromp = $('#questionPromp');
+// answers = $('.answers')
+
+//   startQuiz.on("click", function () {
+//     console.log("container");
+// });
  
 }
+
