@@ -4,6 +4,11 @@
 
 Using JavaScript to dynamically display CSS and HTML data on a single-page web application with a clean, polished, and responsive user interface.
 
+- DOM (Document Object Model) manupulation using JavaScript.
+- Complex logic using `for-loops` and `if-else statements`
+- Dynamic rendering and hiding of elements
+- Interactive HTML and CSS
+
 ## Table of Contents
 
 - [License](#License)

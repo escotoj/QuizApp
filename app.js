@@ -11,18 +11,6 @@ var correctAlert = document.getElementById("correctAlert");
 var initials = document.getElementById("initials");
 var startTime = 60;
 
-// startQuiz.addEventListener("click", function () {
-//   mainBox.classList.remove("hide");
-//   setInterval(function () {
-//     startTime--;
-//     startTimer.textContent = "Timer:" + startTime;
-//     if (startTime <= 0) {
-//       startTime = 0;
-//       quizEnd();
-//     }
-//   }, 1000);
-//   renderQuestion();
-// });
 
 startQuiz.addEventListener("click", function () {
   mainBox.classList.remove("hide");
@@ -38,8 +26,6 @@ startQuiz.addEventListener("click", function () {
   }, 1000);
   renderQuestion();
 });
-
-
 
 var questionPromp = [
   {
